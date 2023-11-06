@@ -3,9 +3,16 @@ import { ShoppingCartContext } from '../../Context'
 
 const Card = ({ data }) => {
     const context = useContext(ShoppingCartContext)
+
+    const showProduct = (productDetail) => {
+      context.openProductDetail()
+      context.setProductToShow(productDetail)
+    }
     
     return (
-      <div className='bg-white w-56 h-60 rounded-lg cursor-pointer'>
+      <div 
+        className='bg-white w-56 h-60 rounded-lg cursor-pointer'
+        onClick={() => showProduct(data)}>
         <figure className='relative w-full h-4/5 mb-2'>
           <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs px-3 py-0.5 m-2'>
             { data.category.name }
