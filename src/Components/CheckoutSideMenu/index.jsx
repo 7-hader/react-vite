@@ -1,9 +1,12 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
+import OrderCard from '../OrderCard'
 import './styles.css'
 
 const CheckputSideMenu = () => {
     const context = useContext(ShoppingCartContext)
+
+    console.log('CART: ', context.cartProducts)
 
     return (
         <aside 
@@ -20,7 +23,19 @@ const CheckputSideMenu = () => {
                 </svg>
 
                 </div>
-            </div>            
+            </div>
+            <div className='overflow-y-auto px-6'>
+            {
+                context.cartProducts.map(product => (
+                    <OrderCard 
+                        key={product.id}
+                        title={product.title}
+                        imageUrl={product.images?.[0]}
+                        price={product.price}
+                    />
+                ))
+            }
+            </div>
         </aside>
     )
 }
