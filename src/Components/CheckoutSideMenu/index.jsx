@@ -6,8 +6,6 @@ import './styles.css'
 const CheckputSideMenu = () => {
     const context = useContext(ShoppingCartContext)
 
-    console.log('CART: ', context.cartProducts)
-
     return (
         <aside 
             className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden' } checkout-site-menu flex-col fixed right-0 border 
