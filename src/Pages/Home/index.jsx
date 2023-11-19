@@ -7,6 +7,19 @@ import ProductDetail from '../../Components/ProductDetail'
 function Home() {
   const context = useContext(ShoppingCartContext)
 
+  const renderView = () => {
+    if (context.filteredItems?.length > 0) {
+      return context.filteredItems.map(item => (
+        <Card 
+          key={item.id}
+          data={item} 
+        />
+      ));
+    } else {
+      return <p>No Results Found :( </p>
+    }
+  }
+
   return (
     <Layout>
       <div className='flex justify-center items-center relative w-80 mb-4'>
@@ -19,14 +32,7 @@ function Home() {
         onChange={(event) => context.setSearchByTitle(event.target.value)}
       />
       <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
-        {
-          context.item?.map(item => (
-            <Card 
-              key={item.id}
-              data={item} 
-            />
-          ))
-        }
+        {renderView()}
       </div>
       <ProductDetail />
     </Layout>
