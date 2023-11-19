@@ -62,9 +62,6 @@ export const ShoppingCartProvider = ({children}) => {
 
     console.log('Filter: ', filteredItems);
 
-    // Shopping Cart - Increment quantity
-    const [count, setCount] = useState(0)
-
     // Product Detail - Open/Close
     const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
     const openProductDetail = () => setIsProductDetailOpen(true)
@@ -93,8 +90,6 @@ export const ShoppingCartProvider = ({children}) => {
             setSearchByTitle,
             searchByCategory,
             setSearchByCategory,
-            count,
-            setCount,
             isProductDetailOpen,
             openProductDetail,
             closeProductDetail,
